@@ -1,0 +1,33 @@
+<aura:component implements="flexipage:availableForAllPageTypes,force:hasRecordId" access="global" controller="ParsingJsonDai">
+        <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+         <aura:attribute name="codigo" type="String" default="#000000" />
+         <aura:attribute name="isLoading" type="Boolean" default="false"/>
+        
+        <h1>Colores: </h1>
+        <br></br>
+
+        <div class="slds-grid">
+
+                <div class="slds-col">
+                          <lightning:button variant="brand-outline" label="Get color" title="Get color" onclick="{!c.handleClick}" />
+                </div>
+
+                <div class="slds-col">    
+                        <div style="{! 'height: 60px; width: 100px; background:' + v.codigo + ';'}"> 
+                
+                        </div>
+                </div>
+
+                <div style="margin-left: 15px;" class="slds-col">
+                        <h2>Color's code:</h2>
+                        <p>{!v.codigo}</p>
+                </div>
+
+        </div>
+
+        
+<aura:if isTrue="{!v.isLoading}">
+        <lightning:spinner alternativeText="Loading" variant="brand"/>
+</aura:if>
+
+</aura:component>
